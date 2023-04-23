@@ -1,44 +1,76 @@
-let timer
-let deleteFirstPhotoDelay
+// https://dog.ceo/api/breeds/list/all
+const BREEDS_URL = 'https://dog.ceo/api/breeds/list/all';
 
-const settings = { 
-  "async": true, "crossDomain": true, 
-  "url": "https://dog-breeds2.p.rapidapi.com/dog_breeds", 
-  "method": "GET", 
-  "headers": { 
-  "X-RapidAPI-Key": "c379b54daamsh6c156222478144bp10ee89jsn39eb9e4f0847", 
-  "X-RapidAPI-Host": "dog-breeds2.p.rapidapi.com" } }; $.ajax(settings).done(function (response) { console.log(response); });
+const select = document.querySelector('.breeds');
 
-$.ajax(settings).done(function (response) {
-	console.log(response);
+fetch(BREEDS_URL)
+  .then(res => {
+    return res.json();
+  })
+  .then(data => {
+    const breedsObject = data.message;
+    const breedsArray = Object.keys(breedsObject);
+    for (let i = 0; i < breedsArray.length; i++) {
+      const option = document.createElement('option');
+      option.value = breedsArray[i];
+      option.innerText = breedsArray[i];
+      select.appendChild(option);
+    }
+    console.log(breedsArray);
+  });
+
+select.addEventListener('change', e => {
+  let url = `https://dog.ceo/api/breeds/list/all${e.target.value}/images/random`;
+  getDoggo(url);
 });
 
-start()
+const img = document.querySelector('.dog-img');
+const spinner = document.querySelector('.spinner');
 
-function createBreedList(breedList) {
-  document.getElementById("breed").innerHTML = `
-  <select onchange="loadByBreed(this.value)">
-        <option>Choose a dog breed</option>
-        ${Object.keys(breedList).map(function (breed) {
-          return `<option>${breed}</option>`
-        }).join('')}
-      </select>
-  `
-}
+const getDoggo = url => {
+  spinner.classList.add('show');
+  img.classList.remove('show');
+  fetch(url)
+    .then(res => {
+      return res.json();
+    })
+    .then(data => {
+      img.src = data.message;
+    });
+};
 
-async function loadByBreed(breed) {
-  if (breed != "Choose a dog breed") {
-    const response = await fetch("https://dog-breeds2.p.rapidapi.com/dog_breeds")
-    const data = await response.json()
-    console.log(data.message[0])
-       document.getElementById("slideshow").innerHTML =
-         `<img src="${data.message[0]}" alt="Italian Trulli">`
+img.addEventListener('load', () => {
+  spinner.classList.remove('show');
+  img.classList.add('show');
+})
+  
+
+<div>
+              <canvas id="myChart"></canvas>
+            </div>
+
+<script src="https://dog.ceo/api/breeds/image/random"></script>           
+const ctx = document.getElementById('myChart');
+
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['hound-afghan', 'hound-basset', 'Ymexicanhairless', 'sheepdog', 'shihtzu', 'samoyed'],
+    datasets: [{
+      label: '# of dogs',
+      data: [12, 19, 3, 5, 2, 3],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
   }
-}
-
-
-
-
+});
+</script>
 
 
 
