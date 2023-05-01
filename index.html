@@ -1,74 +1,72 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Dog Breed API</title>
-    <link rel="stylesheet" href="style.css">
-  
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="Shaun" content="colorlib">
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
-    <link href="css/main.css" rel="stylesheet" />
-  </head>
-  <body>
-    <main>
-      <div class="container">
-        <header>
-          <h1 style="color: aqua;"
-          <h1>WOOFPEDIA</h1>
-          <select class="breeds"></select>
-        </header>
-      </div>
-      <div class="img-container">
-        <div class="container">
-          
-          <img
-            src="https://dog.ceo/api/breeds/list/all"
-            class="dog-img show"
-            alt="Lets get WOOFIN"
-          />
-    
-    <div class="s01">
-        <div= class="wrapper">
-            <header class="header">
-                <div class="right_section">
-                    <h3 style="color: rgb(8, 192, 238);"
-                    <h3>Enter your dog breed</h3>
-                    <form 
-                    action="click"
-                    class="box main_form"
-                    > 
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-                    <div class="app">
-                      <div class="header">
-                      <div id="breed"></div>
-                      </div>
-                      <div class="slideshow" id="slideshow">
-                    
-                      </div>
-                    </div>
-      <form>
-        <fieldset>
-        </fieldset>
-        <div class="inner-form">
-          <div class="input-field first-wrap">
-            <input id="search" type="text" placeholder="Search Breed?" />
-            <div class="spinner">
-            🐶
-          </div>
-          </div>
-          <div class="input-field third-wrap">
-            <button class="btn-search" type="button">Search</button>
-           
-          </div>
-        </div>
-      </main>
-      </form>
-    </div>
-  </body>
+	<title>Dog Breed API</title>
+	<meta name="Shaun" content="colorlib">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+	<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+	<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+	<main>
+		<div class="container">
+			<header>
+				<h1 class="text-cyan-400 text-3xl">
+					WOFFPEDIA
+				</h1>
+			</header>
+		</div>
+
+		<div class="s01">
+			<div class="wrapper">
+				<div class="right_section">
+					<form>
+						<div class="inner-form">
+							<div class="input-field first-wrap">
+							  	<input id="search" type="text" placeholder="Search Breed?" />
+							  	<div class="spinner">
+							  		🐶
+								</div>
+							</div>
+
+							<div class="input-field third-wrap">
+								<button type="button" onclick="alert('I clicked the search')" class="btn-search">Search</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="wrapper" style="margin-top: 24px;">
+				<div class="right_section">
+					<form>
+						<div class="inner-form">
+							<div class="input-field first-wrap">
+								<select name="selectBreeds" id="selectBreeds">
+									<option>Select a breed</option>
+								</select>
+							</div>
+
+							<div class="input-field third-wrap">
+								<button type="button" onclick="breedSelected()" class="btn-search">Select</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div id="imageContainer"></div>
+		</div>
+	</main>
+
+	<script src="./script.js"></script>
+</body>
 </html>
-

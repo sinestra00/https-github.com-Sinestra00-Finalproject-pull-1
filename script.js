@@ -1,78 +1,63 @@
 // https://dog.ceo/api/breeds/list/all
-const BREEDS_URL = 'https://dog.ceo/api/breeds/list/all';
+const listUrl = 'https://dog.ceo/api/breeds/list/all';
+const select = document.getElementById('selectBreeds');
+const options = document.createDocumentFragment();
 
-const select = document.querySelector('.breeds');
+document.addEventListener("DOMContentLoaded", () => {
+    fetch(listUrl)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            let message = data.message;
 
-fetch(BREEDS_URL)
-  .then(res => {
-    return res.json();
-  })
-  .then(data => {
-    const breedsObject = data.message;
-    const breedsArray = Object.keys(breedsObject);
-    for (let i = 0; i < breedsArray.length; i++) {
-      const option = document.createElement('option');
-      option.value = breedsArray[i];
-      option.innerText = breedsArray[i];
-      select.appendChild(option);
-    }
-    console.log(breedsArray);
-  });
+            // needed to convert the object keys to an array for map to work
+            let breeds = Object.keys(message);
 
-select.addEventListener('change', e => {
-  let url = `https://dog.ceo/api/breeds/list/all${e.target.value}/images/random`;
-  getDoggo(url);
+            breeds.map(function(breed) {
+                let option = document.createElement('option');
+
+                option.innerHTML = breed;
+                option.value = breed;
+
+                options.appendChild(option);
+            });
+
+            select.appendChild(options);
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
 });
 
-const img = document.querySelector('.dog-img');
-const spinner = document.querySelector('.spinner');
+function breedSelected() {
+    let selectedBreed = select.value;
 
-const getDoggo = url => {
-  spinner.classList.add('show');
-  img.classList.remove('show');
-  fetch(url)
-    .then(res => {
-      return res.json();
-    })
-    .then(data => {
-      img.src = data.message;
-    });
-};
+    let url = 'https://dog.ceo/api/breed/' + selectedBreed + '/images/random';
 
-img.addEventListener('load', () => {
-  spinner.classList.remove('show');
-  img.classList.add('show');
-})
-  
+    let doggo = getDoggo(url);
+}
 
-<div>
-              <canvas id="myChart"></canvas>
-            </div>
+function getDoggo(url) {
+    fetch(url)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data);
 
-<script src="https://dog.ceo/api/breeds/image/random"></script>           
-const ctx = document.getElementById('myChart');
+            let container = document.getElementById('imageContainer');
 
-new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: ['hound-afghan', 'hound-basset', 'Ymexicanhairless', 'sheepdog', 'shihtzu', 'samoyed'],
-    datasets: [{
-      label: '# of dogs',
-      data: [12, 19, 3, 5, 2, 3],
-      borderWidth: 1
-    }]
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
-      }
-    }
-  }
-});
-</script>
+            // remove any existing children in the element
+            container.innerHTML = '';
 
+            let image = document.createElement('img');
 
+            image.src = data.message;
 
-
-
+            container.appendChild(image);
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+}
