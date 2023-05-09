@@ -61,3 +61,4 @@ function getDoggo(url) {
             console.log(error);
         });
 }
+<script> location.reload();</script>
