@@ -26,6 +26,8 @@ Website is optimized for IOS 15 and Google Chrome
 
 ## License
 
-_{Let people know what to do if they run into any issues or have questions, ideas or concerns.  Encourage them to contact you or make a contribution to the code.}_
+If you would like to contact me with any info or questions or to offer help. I can be reached at sinestra0@yahoo.com
+
+Thanks for visiting!!
 
 Copyright (c) 5/10/2023 (s) Shaun Harrison
