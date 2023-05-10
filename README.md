@@ -2,7 +2,7 @@
 
 #### By Shaun Harrison
 
-#### A website that helps people find breeds of dogs based by user input or by drop down menu
+#### A website that helps people find breeds of dogs based by user input or by drop down menu. I wanted users who have trouble visualizing dog breeds to have a way to search on their own.
 
 # https://github.com/sinestra00/sinestra00.github.io.git
 
