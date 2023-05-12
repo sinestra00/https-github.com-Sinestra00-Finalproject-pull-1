@@ -30,12 +30,12 @@ body {
 .s01 form legend {
   font-size: 72px;
   line-height: 1;
-  color: #fff;
+  color: #0896c2;
   margin-bottom: 60px;
 }
 
 .s01 form .inner-form {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(87, 173, 223, 0.5);
   padding: 50px 47px;
   display: -ms-flexbox;
   display: flex;
@@ -54,7 +54,7 @@ body {
 .s01 form .inner-form .input-field input,
 .s01 form .inner-form .input-field select {
   height: 100%;
-  background: #fff;
+  background: #f0ecec;
   border-radius: .5px;
   border: 0;
   display: block;
@@ -64,7 +64,7 @@ body {
 }
 
 .s01 form .inner-form .input-field input.placeholder {
-  color: #9a9a9a;
+  color: #dadbdd;
   font-size: 20px;
 }
 
@@ -74,7 +74,7 @@ body {
 }
 
 .s01 form .inner-form .input-field input::-webkit-input-placeholder {
-  color: #9a9a9a;
+  color: #f1e3e3d5;
   font-size: 20px;
 }
 
@@ -105,7 +105,7 @@ body {
   white-space: nowrap;
   border-radius: .5px;
   font-size: 20px;
-  color: #fff;
+  color: #ffffff;
   transition: all .2s ease-out, color .2s ease-out;
   border: 0;
   cursor: pointer;
@@ -162,5 +162,22 @@ body {
   }
 }
 
+body {
+  color: rgb(58, 6, 247);
+}
 
+h1 {
+  color: rgb(5, 8, 202);
+}
 
+h1 {
+  font-size: 30px;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+p {
+  font-size: 20px;
+}

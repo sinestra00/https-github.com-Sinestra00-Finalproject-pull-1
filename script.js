@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then((data) => {
             let message = data.message;
 
-            // needed to convert the object keys to an array for map to work
+            // I needed to convert the object keys to an array for map to work
             let breeds = Object.keys(message);
 
             breeds.map(function(breed) {
@@ -48,7 +48,7 @@ function getDoggo(url) {
 
             let container = document.getElementById('imageContainer');
 
-            // remove any existing children in the element
+            // Try to remove any existing children in the element
             container.innerHTML = '';
 
             let image = document.createElement('img');
