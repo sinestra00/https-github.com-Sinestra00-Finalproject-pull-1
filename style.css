@@ -54,7 +54,7 @@ body {
 .s01 form .inner-form .input-field input,
 .s01 form .inner-form .input-field select {
   height: 100%;
-  background: #eceff0;
+  background: #ececf0;
   border-radius: .5px;
   border: 0;
   display: block;
@@ -74,7 +74,7 @@ body {
 }
 
 .s01 form .inner-form .input-field input::-webkit-input-placeholder {
-  color: #f1e3e3d5;
+  color: #e3e6f1d5;
   font-size: 20px;
 }
 
